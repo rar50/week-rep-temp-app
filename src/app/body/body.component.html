@@ -1,0 +1,41 @@
+<div class="input-group mb-3">
+  <span class="input-group-text" id="inputGroup-sizing-default">名前</span>
+  <input type="text" class="form-control" aria-label="Sizing example input" 
+  aria-describedby="inputGroup-sizing-default" [(ngModel)]="inputName">
+</div>
+<div class="input-group mb-3">
+  <span class="input-group-text" id="inputGroup-sizing-default">週開始日</span>
+  <input type="text" class="form-control" aria-label="Sizing example input" 
+  aria-describedby="inputGroup-sizing-default"  placeholder="MMDD"  [(ngModel)]="inputDay">
+</div>
+<div class="input-group">
+  <span class="input-group-text">基本勤務時間</span>
+  <input type="text" aria-label="First name" class="form-control" placeholder="勤務開始時間/○○:○○"
+  [(ngModel)]="inputStartTime">
+  <input type="text" aria-label="Last name" class="form-control" placeholder="勤務終了時間/○○:○○"
+  [(ngModel)]="inputEndTime">
+</div>
+
+<button type="submit" id="button" name="ボタン" (click)="make()" class="btn btn-primary">作る</button>
+
+<div *ngIf="errMess">
+  <div *ngFor="let mes of errMess">
+    <div class="err">{{ mes }}</div>
+  </div>
+</div>
+<div *ngIf="displayFlag">
+  <div>件名</div>
+  <div>
+    <div>週報_{{ inputName }}_{{ dates[0].date }}~{{ dates[6].date }}</div>
+  </div>
+  <div>
+    <div>本文</div>
+    <div *ngFor="let date of dates">
+      {{ date.date }} {{ date.day }} {{ date.time }}
+    </div>
+    <div>{{ tyuuiStr }}</div>
+    <div>{{ sagyouStr }}</div>
+    <div>{{ soukatuStr }}</div>
+    <div>{{ sonotaStr }}</div>
+  </div>
+</div>
