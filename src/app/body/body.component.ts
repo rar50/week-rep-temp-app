@@ -105,4 +105,9 @@ export class BodyComponent implements OnInit {
       this.errMess.push('勤務終了時間が未入力です');
     }
   }
+
+  //開いた結果を閉じる
+  back(){
+    this.displayFlag = false;
+  }
 }
